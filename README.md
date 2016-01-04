@@ -1,2 +1,12 @@
 # CBSVC
-CBScrollViewController
+CBScrollViewController简介：
+  这是一个控制器模版，可以通过标题按钮titleButton的点击来切换内容页面contentScrollView，类似“网易新闻”
+  contentScrollView中利用三个UIView循环复用，避免创建多个view，达到性能优化目的
+  
+
+CBScrollViewController 使用方法
+1.调用初始化方法 titleButtonWithName:viewController: 创建CBTitleButton，其中第一个参数为titleButton显示的title，第二个为即将添加到CBScrollViewController的子控制器
+2.将CBTitleButton添加到一个NSArray中
+3.调用初始化方法 scrollViewControllerWithTitleButtonArray: 
+创建CBScrollViewController，参数为第2步中创建的数组
+4.注意：若在CBScrollViewController中添加UITableViewController及其子类时，请将其tableView.frame.origin.y = 0;(默认为20，为了状态栏留白)
