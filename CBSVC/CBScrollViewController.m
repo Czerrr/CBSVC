@@ -198,8 +198,10 @@
     
     // 第三个view上显示titleButtonArray中的第二个button对应controller的view
     UIView *three = [[UIView alloc] initWithFrame:CGRectMake(self.view.width, 0, self.view.width, self.view.height)];
-    CBTitleButton *secondButton = self.titleButtonArray[1];
-    [three addSubview:secondButton.viewController.view];
+    if (self.titleButtonArray.count > 1) {
+        CBTitleButton *secondButton = self.titleButtonArray[1];
+        [three addSubview:secondButton.viewController.view];
+    }
     [scroll addSubview:three];
     
     // 添加到循环使用池数组reuseArray
